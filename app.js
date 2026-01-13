@@ -1,10 +1,8 @@
 const http = require("http");
 
 const server = http.createServer((req, res) => {
-  if (req.url === "/") {
-    res.writeHead(200, { "Content-Type": "text/plain" });
-    res.end("Backend API is running successfully");
-  }
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("Backend running inside Docker");
 });
 
 server.listen(5000, () => {
