@@ -2,12 +2,10 @@ pipeline {
   agent any
 
   stages {
+
     stage("Update Code") {
       steps {
-        sh """
-          cd /home/ubuntu/backend-app
-          git pull origin main
-        """
+        sh "git pull origin main"
       }
     }
 
@@ -15,9 +13,10 @@ pipeline {
       steps {
         sh """
           pkill node || true
-          node /home/ubuntu/backend-app/app.js &
+          node app.js &
         """
       }
     }
+
   }
 }
