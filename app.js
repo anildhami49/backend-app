@@ -1,13 +1,14 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const app = express();
 
-mongoose.connect(process.env.MONGO_URL)
-.then(() => console.log("MongoDB Connected"))
-.catch(err => console.log(err));
+// Root route
+app.get("/", (req, res) => {
+  res.send("Backend is running successfully");
+});
 
+// API route
 app.get("/api", (req, res) => {
-  res.json({ message: "Backend working fine" });
+  res.json({ message: "Backend API working" });
 });
 
 app.listen(5000, () => {
