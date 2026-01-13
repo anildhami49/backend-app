@@ -13,7 +13,7 @@ pipeline {
       steps {
         sh """
           pkill node || true
-          node app.js &
+          nohup node app.js >/dev/null 2>&1 &
         """
       }
     }
